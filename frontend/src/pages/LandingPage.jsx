@@ -6,7 +6,7 @@ const DOAIDE_PRODUCTS = [
   { name: "Proposals", url: "https://proposals.doaide.com" },
   { name: "Scheduler", url: "https://scheduler.doaide.com" },
   { name: "Payroll", url: "https://payroll.doaide.com" },
-  { name: "Inventory", url: "https://inventory.doaide.com" },
+  { name: "Inventory", url: "https://inventory.doaide.com", current: true },
   { name: "Support", url: "https://support.doaide.com" },
   { name: "Analytics", url: "https://analytics-app.doaide.com" },
   { name: "GST", url: "https://gst.doaide.com" },
@@ -20,64 +20,47 @@ const DOAIDE_PRODUCTS = [
   { name: "Trade", url: "https://trade.doaide.com" },
 ];
 
-function RobotFace({ size = 32, color = "#F0B429" }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width={size} height={size} aria-hidden="true">
-      <line x1="16" y1="6" x2="16" y2="2" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="16" cy="1.5" r="1.5" fill={color} />
-      <rect x="5" y="6" width="22" height="17" rx="5" fill={color} />
-      <ellipse cx="11" cy="13" rx="2.5" ry="3" fill="#0A0A0B" />
-      <ellipse cx="21" cy="13" rx="2.5" ry="3" fill="#0A0A0B" />
-      <circle cx="11.5" cy="12.5" r="1" fill={color} opacity="0.6" />
-      <circle cx="21.5" cy="12.5" r="1" fill={color} opacity="0.6" />
-      <path d="M12 19Q16 22 20 19" stroke="#0A0A0B" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-      <rect x="1" y="10" width="4" height="5" rx="2" fill={color} opacity="0.8" />
-      <rect x="27" y="10" width="4" height="5" rx="2" fill={color} opacity="0.8" />
-    </svg>
-  );
-}
-
 const FEATURES = [
   {
     title: "Product Catalog",
     desc: "SKU management, HSN codes, categories, images, and barcode generation for every product in your inventory.",
     icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg>
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#0D9488" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg>
     ),
   },
   {
     title: "Real-Time Stock Tracking",
     desc: "Live stock levels across multiple warehouses with configurable min/max thresholds and auto-updates.",
     icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#0D9488" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>
     ),
   },
   {
     title: "Purchase Orders",
     desc: "Create POs, track supplier deliveries, and auto-update stock on receipt. Full supplier management built in.",
     icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#0D9488" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
     ),
   },
   {
     title: "Sales Orders",
     desc: "Process customer orders, auto-deduct stock, and track fulfillment status from quote to delivery.",
     icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" /></svg>
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#0D9488" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" /></svg>
     ),
   },
   {
     title: "Barcode & QR Codes",
     desc: "Generate and print barcodes for products. Scan to look up or update stock levels instantly.",
     icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><line x1="14" y1="14" x2="14" y2="14.01" /><line x1="21" y1="14" x2="21" y2="14.01" /><line x1="14" y1="21" x2="14" y2="21.01" /><line x1="21" y1="21" x2="21" y2="21.01" /><line x1="17.5" y1="14" x2="17.5" y2="14.01" /><line x1="14" y1="17.5" x2="14" y2="17.51" /><line x1="21" y1="17.5" x2="21" y2="17.51" /><line x1="17.5" y1="21" x2="17.5" y2="21.01" /><line x1="17.5" y1="17.5" x2="17.5" y2="17.51" /></svg>
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#0D9488" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><line x1="14" y1="14" x2="14" y2="14.01" /><line x1="21" y1="14" x2="21" y2="14.01" /><line x1="14" y1="21" x2="14" y2="21.01" /><line x1="21" y1="21" x2="21" y2="21.01" /><line x1="17.5" y1="14" x2="17.5" y2="14.01" /><line x1="14" y1="17.5" x2="14" y2="17.51" /><line x1="21" y1="17.5" x2="21" y2="17.51" /><line x1="17.5" y1="21" x2="17.5" y2="21.01" /><line x1="17.5" y1="17.5" x2="17.5" y2="17.51" /></svg>
     ),
   },
   {
     title: "Smart Alerts",
     desc: "Automatic low-stock alerts, reorder point reminders, and expiry date notifications. Never miss a stockout.",
     icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 106 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 01-3.46 0" /></svg>
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#0D9488" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 106 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 01-3.46 0" /></svg>
     ),
   },
 ];
@@ -152,7 +135,7 @@ function ReferralBanner() {
             const ok = await copyToClipboard(fullUrl("/"));
             if (ok) { setCopied(true); setTimeout(() => setCopied(false), 2000); }
           }}
-          className="px-6 py-2.5 bg-[#F0B429] text-[#0A0A0B] font-semibold rounded-lg hover:bg-[#D4A017] transition-colors"
+          className="px-6 py-2.5 bg-[#0D9488] text-white font-semibold rounded-lg hover:bg-[#0F766E] transition-colors"
         >
           {copied ? "Link Copied!" : "Copy Share Link"}
         </button>
@@ -179,7 +162,7 @@ function FaqSection() {
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 >
                   {item.q}
-                  <span className="ml-4 text-[#F0B429] text-xl flex-shrink-0">{openIndex === i ? "−" : "+"}</span>
+                  <span className="ml-4 text-[#0D9488] text-xl flex-shrink-0">{openIndex === i ? "−" : "+"}</span>
                 </button>
               </dt>
               {openIndex === i && (
@@ -197,11 +180,10 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-[#0A0A0B]">
       <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
-        <a href="https://doaide.com" className="flex items-center gap-2.5 no-underline">
-          <RobotFace size={28} color="#F0B429" />
-          <span className="text-xl font-bold text-gray-900 dark:text-white">
-            DoAide <span className="text-[#F0B429]">Inventory</span>
-          </span>
+        <a href="https://doaide.com" className="flex items-center gap-1.5 no-underline">
+          <span className="text-xl font-bold text-[#0D9488]">DoAide</span>
+          <span className="text-xl font-light text-gray-400 dark:text-gray-500">|</span>
+          <span className="text-xl font-semibold text-gray-900 dark:text-white">Inventory</span>
         </a>
         <nav className="flex items-center gap-4">
           <Link to="/pricing" className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors no-underline">
@@ -210,7 +192,7 @@ export default function LandingPage() {
           <Link to="/auth" className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors no-underline">
             Login
           </Link>
-          <Link to="/auth" className="px-4 py-2 bg-[#F0B429] text-[#0A0A0B] text-sm font-semibold rounded-lg hover:bg-[#D4A017] transition-colors no-underline">
+          <Link to="/auth" className="px-4 py-2 bg-[#0D9488] text-white text-sm font-semibold rounded-lg hover:bg-[#0F766E] transition-colors no-underline">
             Get Started
           </Link>
         </nav>
@@ -220,14 +202,14 @@ export default function LandingPage() {
         <section className="py-20 sm:py-28 px-4 sm:px-6 text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
             Inventory Management,{" "}
-            <span className="text-[#F0B429]">Made Simple</span>
+            <span className="text-[#0D9488]">Made Simple</span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
             Track products, manage stock across warehouses, handle purchase and
             sales orders, and get real-time alerts. Built for growing businesses.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/auth" className="px-8 py-3.5 bg-[#F0B429] text-[#0A0A0B] text-lg font-semibold rounded-lg hover:bg-[#D4A017] transition-colors no-underline">
+            <Link to="/auth" className="px-8 py-3.5 bg-[#0D9488] text-white text-lg font-semibold rounded-lg hover:bg-[#0F766E] transition-colors no-underline">
               Start Free
             </Link>
             <Link to="/pricing" className="px-8 py-3.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-lg rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors no-underline">
@@ -246,7 +228,7 @@ export default function LandingPage() {
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {FEATURES.map((f) => (
-                <div key={f.title} className="p-6 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-[#0A0A0B] hover:border-[#F0B429]/30 transition-colors">
+                <div key={f.title} className="p-6 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-[#0A0A0B] hover:border-[#0D9488]/30 transition-colors">
                   <div className="mb-4">{f.icon}</div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{f.title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{f.desc}</p>
@@ -262,7 +244,7 @@ export default function LandingPage() {
             <div className="grid md:grid-cols-3 gap-8">
               {HOW_IT_WORKS.map((s) => (
                 <div key={s.step} className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-[#F0B429] text-[#0A0A0B] text-xl font-bold flex items-center justify-center mx-auto mb-4">{s.step}</div>
+                  <div className="w-12 h-12 rounded-full bg-[#0D9488] text-white text-xl font-bold flex items-center justify-center mx-auto mb-4">{s.step}</div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{s.title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{s.desc}</p>
                 </div>
@@ -277,8 +259,8 @@ export default function LandingPage() {
             <p className="text-gray-600 dark:text-gray-400 text-center mb-14">Start free with up to 50 products. Scale as you grow.</p>
             <div className="grid md:grid-cols-3 gap-8">
               {PLANS.map((plan) => (
-                <div key={plan.name} className={`p-8 rounded-xl border ${plan.featured ? "border-[#F0B429] ring-2 ring-[#F0B429]/20" : "border-gray-200 dark:border-gray-700"} bg-white dark:bg-[#0A0A0B]`}>
-                  {plan.featured && <span className="text-xs font-semibold text-[#F0B429] uppercase tracking-wide">Most Popular</span>}
+                <div key={plan.name} className={`p-8 rounded-xl border ${plan.featured ? "border-[#0D9488] ring-2 ring-[#0D9488]/20" : "border-gray-200 dark:border-gray-700"} bg-white dark:bg-[#0A0A0B]`}>
+                  {plan.featured && <span className="text-xs font-semibold text-[#0D9488] uppercase tracking-wide">Most Popular</span>}
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-2">{plan.name}</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{plan.desc}</p>
                   <div className="mt-4 mb-6">
@@ -288,12 +270,12 @@ export default function LandingPage() {
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                        <svg className="w-4 h-4 text-[#F0B429] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+                        <svg className="w-4 h-4 text-[#0D9488] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <Link to="/auth" className={`block w-full text-center py-3 rounded-lg font-semibold text-sm transition-colors no-underline ${plan.featured ? "bg-[#F0B429] text-[#0A0A0B] hover:bg-[#D4A017]" : "border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"}`}>
+                  <Link to="/auth" className={`block w-full text-center py-3 rounded-lg font-semibold text-sm transition-colors no-underline ${plan.featured ? "bg-[#0D9488] text-white hover:bg-[#0F766E]" : "border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"}`}>
                     {plan.cta}
                   </Link>
                 </div>
@@ -328,7 +310,7 @@ export default function LandingPage() {
                 <Link key={t.path} to={t.path} className="landing-tool-card">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{t.title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400">{t.desc}</p>
-                  <span className="text-[#F0B429] text-sm font-medium mt-3 inline-block">Try it free &rarr;</span>
+                  <span className="text-[#0D9488] text-sm font-medium mt-3 inline-block">Try it free &rarr;</span>
                 </Link>
               ))}
             </div>
@@ -342,7 +324,7 @@ export default function LandingPage() {
         <section className="py-20 px-4 sm:px-6 text-center bg-gray-50 dark:bg-[#111113]">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Ready to Take Control of Your Inventory?</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto">Start tracking inventory today. Free forever for up to 50 products. No credit card required.</p>
-          <Link to="/auth" className="inline-block px-8 py-3.5 bg-[#F0B429] text-[#0A0A0B] text-lg font-semibold rounded-lg hover:bg-[#D4A017] transition-colors no-underline">
+          <Link to="/auth" className="inline-block px-8 py-3.5 bg-[#0D9488] text-white text-lg font-semibold rounded-lg hover:bg-[#0F766E] transition-colors no-underline">
             Get Started Free
           </Link>
         </section>
@@ -354,43 +336,65 @@ export default function LandingPage() {
             <div>
               <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Free Tools</h4>
               <div className="space-y-2 text-sm">
-                <Link to="/calculator" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Reorder Calculator</Link>
-                <Link to="/tools/abc-analysis" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">ABC Analysis</Link>
-                <Link to="/tools/inventory-turnover" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Turnover Calculator</Link>
-                <Link to="/scanner" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Barcode Generator</Link>
-                <Link to="/tools" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">All Free Tools</Link>
+                <Link to="/calculator" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">Reorder Calculator</Link>
+                <Link to="/tools/abc-analysis" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">ABC Analysis</Link>
+                <Link to="/tools/inventory-turnover" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">Turnover Calculator</Link>
+                <Link to="/scanner" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">Barcode Generator</Link>
+                <Link to="/tools" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">All Free Tools</Link>
               </div>
             </div>
             <div>
               <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Product</h4>
               <div className="space-y-2 text-sm">
-                <Link to="/pricing" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Pricing</Link>
-                <a href="#features-heading" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline" onClick={(e) => { e.preventDefault(); document.getElementById("features-heading")?.scrollIntoView({ behavior: "smooth" }); }}>Features</a>
-                <a href="#faq-heading" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline" onClick={(e) => { e.preventDefault(); document.getElementById("faq-heading")?.scrollIntoView({ behavior: "smooth" }); }}>FAQ</a>
+                <Link to="/pricing" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">Pricing</Link>
+                <a href="#features-heading" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline" onClick={(e) => { e.preventDefault(); document.getElementById("features-heading")?.scrollIntoView({ behavior: "smooth" }); }}>Features</a>
+                <a href="#faq-heading" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline" onClick={(e) => { e.preventDefault(); document.getElementById("faq-heading")?.scrollIntoView({ behavior: "smooth" }); }}>FAQ</a>
               </div>
             </div>
             <div>
               <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Resources</h4>
               <div className="space-y-2 text-sm">
-                <Link to="/blog" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Blog</Link>
-                <Link to="/blog/reorder-point-formula-explained" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Reorder Point Guide</Link>
-                <Link to="/blog/abc-analysis-inventory-management" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">ABC Analysis Guide</Link>
-                <Link to="/blog/inventory-turnover-ratio-guide" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Turnover Ratio Guide</Link>
+                <Link to="/blog" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">Blog</Link>
+                <Link to="/blog/reorder-point-formula-explained" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">Reorder Point Guide</Link>
+                <Link to="/blog/abc-analysis-inventory-management" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">ABC Analysis Guide</Link>
+                <Link to="/blog/inventory-turnover-ratio-guide" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">Turnover Ratio Guide</Link>
               </div>
             </div>
             <div>
               <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">Company</h4>
               <div className="space-y-2 text-sm">
-                <a href="https://doaide.com" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">About DoAide</a>
-                <a href="mailto:support@doaide.com" className="block text-gray-500 dark:text-gray-400 hover:text-[#F0B429] no-underline">Contact</a>
+                <a href="https://doaide.com" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">About DoAide</a>
+                <a href="mailto:support@doaide.com" className="block text-gray-500 dark:text-gray-400 hover:text-[#0D9488] no-underline">Contact</a>
               </div>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-200 dark:border-gray-800">
-            <a href="https://doaide.com" className="flex items-center gap-2 no-underline">
-              <RobotFace size={16} color="#F0B429" />
-              <span className="text-sm text-gray-500 dark:text-gray-400">doaide.com</span>
-            </a>
+
+          <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
+            <h4 className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">More from DoAide</h4>
+            <div className="flex flex-wrap gap-2 mb-8">
+              {DOAIDE_PRODUCTS.map((p) => (
+                <a
+                  key={p.name}
+                  href={p.url}
+                  className={`text-xs px-2.5 py-1 rounded-full no-underline transition-colors ${
+                    p.current
+                      ? "bg-[#0D9488] text-white"
+                      : "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-[#0D9488] dark:hover:text-[#14b8a6]"
+                  }`}
+                >
+                  {p.name}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-gray-200 dark:border-gray-800">
+            <div className="flex items-center gap-3">
+              <a href="https://doaide.com" className="flex items-center gap-1.5 no-underline">
+                <span className="text-sm font-semibold text-[#0D9488]">DoAide</span>
+              </a>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400">A DoAide Product</span>
+            </div>
             <span className="text-sm text-gray-400 dark:text-gray-500">&copy; {new Date().getFullYear()} DoAide. All rights reserved.</span>
           </div>
         </div>

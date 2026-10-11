@@ -40,8 +40,9 @@ export default function Shell({ children }) {
         style={{ background: "var(--sidebar-bg)", borderRight: "1px solid var(--border)" }}
       >
         <div className="p-4 flex items-center gap-2" style={{ borderBottom: "1px solid var(--border)" }}>
-          <div className="w-8 h-8 rounded-lg bg-accent-600 flex items-center justify-center text-white font-bold">I</div>
-          <span className="font-semibold" style={{ color: "var(--text-primary)" }}>DoAide Inventory</span>
+          <span className="font-bold text-accent-600">DoAide</span>
+          <span className="font-light" style={{ color: "var(--text-muted)" }}>|</span>
+          <span className="font-semibold" style={{ color: "var(--text-primary)" }}>Inventory</span>
         </div>
         <nav className="flex-1 overflow-y-auto p-2 space-y-1">
           {NAV.map((item) => {
@@ -88,7 +89,9 @@ export default function Shell({ children }) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
-          <span className="font-semibold" style={{ color: "var(--text-primary)" }}>DoAide Inventory</span>
+          <span className="font-bold text-accent-600">DoAide</span>
+          <span className="font-light" style={{ color: "var(--text-muted)" }}>|</span>
+          <span className="font-semibold" style={{ color: "var(--text-primary)" }}>Inventory</span>
         </header>
         <main className="flex-1 overflow-y-auto p-4 md:p-6">{children}</main>
       </div>

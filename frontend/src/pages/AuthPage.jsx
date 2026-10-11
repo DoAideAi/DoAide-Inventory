@@ -40,7 +40,11 @@ export default function AuthPage() {
     <div className="min-h-screen flex items-center justify-center p-4" style={{ background: "var(--bg-secondary)" }}>
       <div className="w-full max-w-md p-8 rounded-xl" style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)" }}>
         <div className="text-center mb-8">
-          <div className="w-12 h-12 rounded-xl bg-accent-600 flex items-center justify-center text-white font-bold text-xl mx-auto mb-3">I</div>
+          <div className="flex items-center justify-center gap-1.5 mb-3">
+            <span className="text-2xl font-bold text-accent-600">DoAide</span>
+            <span className="text-2xl font-light" style={{ color: "var(--text-muted)" }}>|</span>
+            <span className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>Inventory</span>
+          </div>
           <h1 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>{isRegister ? "Create Account" : "Welcome Back"}</h1>
         </div>
 

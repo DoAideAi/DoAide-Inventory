@@ -18,7 +18,7 @@ export default function InventoryTurnoverPage() {
 
   let rating, ratingColor;
   if (turnoverRatio >= 8) { rating = "Excellent"; ratingColor = "#10b981"; }
-  else if (turnoverRatio >= 5) { rating = "Good"; ratingColor = "#F0B429"; }
+  else if (turnoverRatio >= 5) { rating = "Good"; ratingColor = "#0D9488"; }
   else if (turnoverRatio >= 2) { rating = "Average"; ratingColor = "#f59e0b"; }
   else { rating = "Low — Review needed"; ratingColor = "#dc2626"; }
 
@@ -53,7 +53,7 @@ export default function InventoryTurnoverPage() {
 
           <div className="calc-card" style={{ textAlign: "center" }}>
             <div style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--text-muted)" }}>Inventory Turnover Ratio</div>
-            <div style={{ fontSize: "3rem", fontWeight: 800, color: "#F0B429" }}>{turnoverRatio.toFixed(1)}x</div>
+            <div style={{ fontSize: "3rem", fontWeight: 800, color: "#0D9488" }}>{turnoverRatio.toFixed(1)}x</div>
             <div style={{ fontSize: "0.95rem", fontWeight: 600, color: ratingColor }}>{rating}</div>
           </div>
 

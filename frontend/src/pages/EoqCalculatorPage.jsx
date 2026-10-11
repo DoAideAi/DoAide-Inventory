@@ -53,7 +53,7 @@ export default function EoqCalculatorPage() {
 
           <div className="calc-card" style={{ textAlign: "center" }}>
             <div style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--text-muted)" }}>Economic Order Quantity</div>
-            <div style={{ fontSize: "3rem", fontWeight: 800, color: "#F0B429" }}>{eoq.toLocaleString()}</div>
+            <div style={{ fontSize: "3rem", fontWeight: 800, color: "#0D9488" }}>{eoq.toLocaleString()}</div>
             <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>units per order</div>
           </div>
 

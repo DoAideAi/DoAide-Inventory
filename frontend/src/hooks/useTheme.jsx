@@ -20,7 +20,7 @@ function applyTheme(mode) {
 export function ThemeProvider({ children }) {
   const [mode, setModeState] = useState(() => {
     try {
-      return localStorage.getItem(KEY) || "system";
+      return localStorage.getItem(KEY) || "light";
     } catch {
       return "system";
     }

@@ -11,8 +11,9 @@ export default function PricingPage() {
     <div className="min-h-screen" style={{ background: "var(--bg-primary)" }}>
       <header className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid var(--border)" }}>
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-accent-600 flex items-center justify-center text-white font-bold">I</div>
-          <span className="font-semibold text-lg" style={{ color: "var(--text-primary)" }}>DoAide Inventory</span>
+          <span className="font-bold text-lg text-accent-600">DoAide</span>
+          <span className="font-light text-lg" style={{ color: "var(--text-muted)" }}>|</span>
+          <span className="font-semibold text-lg" style={{ color: "var(--text-primary)" }}>Inventory</span>
         </Link>
         <Link to="/auth" className="px-4 py-2 rounded-lg bg-accent-600 text-white text-sm font-medium">Sign in</Link>
       </header>

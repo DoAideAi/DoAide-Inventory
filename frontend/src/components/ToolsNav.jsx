@@ -13,7 +13,7 @@ export default function ToolsNav() {
   const { pathname } = useLocation();
   return (
     <nav className="tools-nav">
-      <Link to="/" className="tools-nav-brand">DoAide Inventory</Link>
+      <Link to="/" className="tools-nav-brand">DoAide | Inventory</Link>
       <div className="tools-nav-links">
         {TOOLS.map((t) => (
           <Link key={t.path} to={t.path} className={`tools-nav-link${pathname === t.path ? " active" : ""}`}>
