@@ -1,7 +1,8 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Shell from "./components/Shell";
 import { useAuth } from "./hooks/useAuth";
+import useSEO from "./hooks/useSEO";
 import AlertsPage from "./pages/AlertsPage";
 import AuthPage from "./pages/AuthPage";
 import BlogLayout, { BlogIndex } from "./pages/BlogLayout";
@@ -51,6 +52,7 @@ function Home() {
 }
 
 export default function App() {
+  useSEO(useLocation().pathname.replace(/\/+$/, "") || "/");
   return (
     <ErrorBoundary>
       <Routes>
